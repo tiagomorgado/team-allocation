@@ -11,8 +11,10 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
 
+  /* If available fetch the team from local storage */
   const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "TeamB")
 
+    /* Initialised the team members and their details. If available fetch the team from local storage  */
     const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList')) || [{
         id: 1,
         fullName: "Bob Jones",
@@ -98,11 +100,13 @@ function App() {
         teamName: "TeamD"
       }])
 
+      /* Save Employee List to local storage */
       useEffect(() => {
         localStorage.setItem('employeeList', JSON.stringify(employees));
 
       },[employees])
 
+      /* Save selected team to local storage */
       useEffect(() => {
         localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam));
 
@@ -122,8 +126,7 @@ function App() {
   return (
     <Router>
       <Nav/>
-      <Header selectedTeam={selectedTeam}
-              teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length}/>
+      <Header selectedTeam={selectedTeam} teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length}/>
       <Routes>
         <Route path="/" element={<Employees employees={employees}
                     selectedTeam={selectedTeam}
@@ -133,7 +136,6 @@ function App() {
         </Route>
         <Route path="/GroupedTeamMembers" element={<GroupedTeamMembers employees={employees} selectedTeam={selectedTeam} setTeam={setTeam}/>}>
         </Route>
-
         <Route path="*" element={<NotFound/>}>
         </Route>
       </Routes>
