@@ -61,7 +61,6 @@ const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
                                         )
                                     })
                                 }
-
                             </div>
                         </div>
                     )
