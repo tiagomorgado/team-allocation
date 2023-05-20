@@ -14,7 +14,7 @@ function App() {
   /* If available fetch the team from local storage */
   const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "TeamB")
 
-    /* Initialised the team members and their details. If available fetch the team from local storage  */
+    /* Initialized the team members and their details. If available fetch the team from local storage  */
     const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList')) || [{
         id: 1,
         fullName: "Bob Jones",
