@@ -8,7 +8,6 @@ import NotFound from './NotFound';
 import { useState, useEffect } from "react"
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
-
 function App() {
 
   /* If available fetch the team from local storage */
